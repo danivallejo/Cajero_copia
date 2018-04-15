@@ -12,8 +12,12 @@ typedef struct
 
 } t_movimiento;
 
-void ConsultarMovimiento(t_tarjeta TarjetaIntroducida);
-void Transferencia(t_tarjeta TarjetaIntroducida);
-void SacarDinero(t_tarjeta TarjetaIntroducida);
-void MeterDinero(t_tarjeta TarjetaIntroducida);
+int CantidadMovimientos();
+void LeerMovimientos(t_movimiento movimientos[]);
+void EscribirMovimientos(t_movimiento movimientos[], int CantMovimientos);
+void ConsultarMovimiento(t_tarjeta * TarjetaIntroducida, t_movimiento movimientos[], int CantMovimientos);
+//void Transferencia(t_tarjeta TarjetaIntroducida, t_tarjeta tarjetas[], int CantTarjetas, t_movimiento movimientos[], int CantMovimientos);
+void SacarDinero(t_tarjeta * TarjetaIntroducida, t_movimiento movimientos[], int CantMovimientos);
+void MeterDinero(t_tarjeta * TarjetaIntroducida, t_movimiento movimientos[], int CantMovimientos);
+//void Salir2(t_movimiento movimientos[], int CantMovimientos);
 #endif

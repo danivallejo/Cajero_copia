@@ -6,13 +6,14 @@ typedef struct
 	int numTarjeta;
 	int Password;
 	int Saldo;
-}t_tarjeta; 
+} t_tarjeta;
 
-
-int menu(t_tarjeta TarjetaIntroducida);
+int CantidadTarjetas();
+void LeerTarjetas(t_tarjeta tarjetas[]);
+void EscribirTarjetas(t_tarjeta tarjetas[], int CantidadTarjetas);
 void AltaTarjeta();
 void IntroducirTarjeta();
-void ConsultarSaldo(t_tarjeta TarjetaIntroducida);
+void ConsultarSaldo(t_tarjeta * TarjetaIntroducida);
 void Salir();
 //void print(t_tarjeta *t)
 
