@@ -1,5 +1,6 @@
 #include "Tarjeta.h"
 #include "Movimiento.h"
+#include "ficheros.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -49,86 +50,7 @@ int menu(t_tarjeta TarjetaIntroducida)
 
 	return 0;
 }
-int CantidadTarjetas()
-{
-	FILE * fd;
-	int num = 0; 
-
-	fd = fopen("registro.dat", "rb");
-
-	if(!fd)
-	{
-		printf("Error al abrir el fichero\n");
-	}
-	else
-	{
-		num=fgetc(fd);
-	}
-	
-	return num;
-}
-void LeerTarjetas(t_tarjeta tarjetas[])
-{
-	int CantidadTarjetas;
-	FILE* fd;
-
-	fd = fopen("registro.dat", "rb");
-	 //leer la cantidad de elementos
-  
-	if(!fd)
-	{
-		printf("Error al abrir el fichero\n");
-	}
-	else
-	{
-
-  	CantidadTarjetas = fgetc(fd);
-
-  	if(CantidadTarjetas == -1)
-  	{
-  		CantidadTarjetas++;
-  	}
-
-  	printf ("%i\n", CantidadTarjetas);
-  /*
-  	//crear memoria para guardar los datos
- 	tarjetas = (t_tarjeta*)malloc(100 * sizeof(t_tarjeta));	
-  */
-  	//leer los datos del binario al array
- 
- 	fread(tarjetas, sizeof(t_tarjeta), CantidadTarjetas, fd);
- 		
- //fclose(fd);
-	}
-
-}
-void EscribirTarjeta(t_tarjeta tarjetas[], int CantidadTarjetas)
-{
-	FILE *fd;
-
-	fd = fopen("registro.dat", "wb");
-
-	if(!fd)
-	{
-		printf("Error al abrir el fichero\n");
-	}
-	else
-	{
-/*
-	CantidadTarjetas = fgetc(fd);
-
-	CantidadTarjetas++;
-*/
-	fputc(CantidadTarjetas, fd);
-
-	fwrite(tarjetas, sizeof(t_tarjeta), CantidadTarjetas, fd);
-
-	}	
-	
-//	fclose(fd);
-
-}
-void AltaTarjeta (t_tarjeta tarjetas[], int CantidadTarjetas)
+int AltaTarjeta (t_tarjeta tarjetas[], int CantidadTarjetas)
 { /*
 	int numeroTarjeta;
 	int PIN;
@@ -198,9 +120,7 @@ void AltaTarjeta (t_tarjeta tarjetas[], int CantidadTarjetas)
 
 	scanf ("%i", &tarjeta.Password);
 
-	tarjeta.Saldo = 100;
-
-	
+	tarjeta.Saldo = 0;
 
 	tarjetas[CantidadTarjetas] = tarjeta;
 
@@ -214,7 +134,9 @@ void AltaTarjeta (t_tarjeta tarjetas[], int CantidadTarjetas)
 
 */	CantidadTarjetas++;
 
-	EscribirTarjeta(tarjetas, CantidadTarjetas);
+	EscribirTarjetas(tarjetas, CantidadTarjetas);
+
+	return CantidadTarjetas;
 /*
 	fd = fopen("registro.dat", "wb");
 

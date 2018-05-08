@@ -8,11 +8,10 @@ typedef struct
 	int Saldo;
 } t_tarjeta;
 
-int CantidadTarjetas();
-void LeerTarjetas(t_tarjeta tarjetas[]);
-void EscribirTarjetas(t_tarjeta tarjetas[], int CantidadTarjetas);
-void AltaTarjeta();
-void IntroducirTarjeta();
+
+
+int AltaTarjeta(t_tarjeta tarjetas[], int CantidadTarjetas);
+void IntroducirTarjeta(t_tarjeta tarjetas[], int CantidadTarjetas);
 void ConsultarSaldo(t_tarjeta * TarjetaIntroducida);
 void Salir();
 //void print(t_tarjeta *t)

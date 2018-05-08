@@ -15,7 +15,6 @@ int main(void)
 	t_tarjeta *tarjetas = (t_tarjeta *) malloc (100 * sizeof(t_tarjeta));
 
 	LeerTarjetas(tarjetas);
- 
 	do 
 
 	{
